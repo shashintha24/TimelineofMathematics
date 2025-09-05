@@ -1,108 +1,199 @@
-// Timeline dataset with categories + images
+// Timeline event data
 const events = [
-  { year: "3000 BC", title: "Ancient Egypt", description: "Used early mathematics in construction and trade.", category: "Geometry", image: "images/egypt.jpg" },
-  { year: "600 BC", title: "Pythagoras", description: "Introduced Pythagorean theorem and number philosophy.", category: "Geometry", image: "images/pythagoras.jpg" },
-  { year: "300 BC", title: "Euclid", description: "Father of geometry, wrote 'Elements'.", category: "Geometry", image: "images/euclid.jpg" },
-  { year: "200 BC", title: "Archimedes", description: "Made contributions to geometry, calculus, and physics.", category: "Geometry", image: "images/archimedes.jpg" },
-  { year: "800 AD", title: "Al-Khwarizmi", description: "Introduced algebra to the world.", category: "Algebra", image: "images/alkhwarizmi.jpg" },
-  { year: "1600 AD", title: "Descartes", description: "Linked algebra and geometry with analytic geometry.", category: "Algebra", image: "images/descartes.jpg" },
-  { year: "1700 AD", title: "Newton & Leibniz", description: "Independently developed calculus.", category: "Calculus", image: "images/newton.jpg" },
-  { year: "1900 AD", title: "Hilbert", description: "Famous 23 problems shaping 20th-century mathematics.", category: "Theory", image: "images/hilbert.jpg" },
-  { year: "1950 AD", title: "Alan Turing", description: "Pioneer of computer science and mathematical logic.", category: "Computer Science", image: "images/turing.jpg" },
-  { year: "2000 AD", title: "Modern Era", description: "AI and big data revolutionize applied mathematics.", category: "Computer Science", image: "images/ai.jpg" }
+  {
+    year: -3000,
+    title: "Ancient Egypt",
+    description: "Earliest records of mathematics for building pyramids.",
+    image: "assets/egypt.jpg",
+    video: "https://www.youtube.com/embed/tgbNymZ7vqY",
+    category: "Math"
+  },
+  {
+    year: -600,
+    title: "Pythagoras",
+    description: "Famous for the Pythagorean theorem.",
+    video: "assets/pythagoras.mp4",
+    category: "Math"
+  },
+  {
+    year: 1600,
+    title: "Descartes",
+    description: "Father of analytic geometry.",
+    category: "Philosophy"
+  },
+  {
+    year: 1900,
+    title: "Hilbert",
+    description: "Presented his famous 23 problems.",
+    category: "Math"
+  },
+  {
+    year: 2000,
+    title: "Modern Era",
+    description: "Rise of computer science and AI in mathematics.",
+    video: "https://www.youtube.com/embed/dQw4w9WgXcQ",
+    category: "Science"
+  }
 ];
 
-// Category colors
-const categoryColors = {
-  "Geometry": "#ff5722",
-  "Algebra": "#4caf50",
-  "Calculus": "#9c27b0",
-  "Theory": "#2196f3",
-  "Computer Science": "#ff9800"
-};
+// SVG setup
+const svg = d3.select("#timelineSvg");
+const width = window.innerWidth;
+const height = window.innerHeight - 100;
 
-const timeline = document.getElementById("timeline");
-const overlay = document.getElementById("overlay");
-const overlayTitle = document.getElementById("overlayTitle");
-const overlayYear = document.getElementById("overlayYear");
-const overlayDesc = document.getElementById("overlayDesc");
-const overlayImg = document.getElementById("overlayImg");
-const closeOverlay = document.getElementById("closeOverlay");
+svg.attr("width", width).attr("height", height);
 
-// Render events
-events.forEach(event => {
-  const eventDiv = document.createElement("div");
-  eventDiv.classList.add("event");
+// Scale for years
+const xScale = d3.scaleLinear()
+  .domain([d3.min(events, d => d.year) - 500, d3.max(events, d => d.year) + 500])
+  .range([100, width - 100]);
 
-  eventDiv.innerHTML = `
-    <div class="dot" style="background:${categoryColors[event.category]}"></div>
-    <span>${event.year}</span>
+// Axis
+const xAxis = d3.axisBottom(xScale).ticks(20).tickFormat(d => d < 0 ? `${-d} BC` : `${d} AD`);
+svg.append("g")
+  .attr("transform", `translate(0, ${height/2})`)
+  .call(xAxis);
+
+// Event dots
+svg.selectAll("circle")
+  .data(events)
+  .enter()
+  .append("circle")
+  .attr("class", "event-dot")
+  .attr("cx", d => xScale(d.year))
+  .attr("cy", height/2)
+  .attr("r", 8)
+  .on("click", (event, d) => showCard(d, xScale(d.year), height/2));
+
+
+// Event labels
+svg.selectAll("text.event-label")
+  .data(events)
+  .enter()
+  .append("text")
+  .attr("class", "event-label")
+  .attr("x", d => xScale(d.year))
+  .attr("y", height/2 - 20)
+  .text(d => d.title);
+
+// Card container
+const container = document.getElementById("eventsContainer");
+
+// Show event card
+function showCard(eventData, x, y) {
+  container.innerHTML = "";
+  // Create overlay
+  const overlay = document.createElement("div");
+  overlay.id = "cardOverlay";
+  overlay.style.display = "block";
+  container.appendChild(overlay);
+
+  const card = document.createElement("div");
+  card.className = "event-card";
+  card.style.position = "fixed";
+  card.style.left = "50%";
+  card.style.top = "50%";
+  card.style.transform = "translate(-50%, -50%) scale(0.7)";
+  card.style.opacity = "0";
+
+  // Video embed logic
+  let videoHTML = "";
+  if (eventData.video) {
+    if (
+      eventData.video.includes("youtube.com") ||
+      eventData.video.includes("youtu.be")
+    ) {
+      // Add autoplay=1 for YouTube
+      let src = eventData.video;
+      if (!src.includes("autoplay=1")) {
+        src += (src.includes("?") ? "&" : "?") + "autoplay=1";
+      }
+      videoHTML = `<iframe src="${src}" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen style="width:100%;height:60vh;"></iframe>`;
+    } else {
+      // Local video
+      videoHTML = `<video controls autoplay style="margin-top:8px;width:100%;border-radius:8px;">
+        <source src="${eventData.video}" type="video/mp4">
+        Your browser does not support the video tag.
+      </video>`;
+    }
+  }
+
+  card.innerHTML = `
+    <h3>${eventData.title} (${eventData.year < 0 ? -eventData.year + " BC" : eventData.year + " AD"})</h3>
+    <p>${eventData.description}</p>
+    ${eventData.image ? `<img src="${eventData.image}" alt="${eventData.title}">` : ""}
+    ${videoHTML}
   `;
+  container.appendChild(card);
+  card.style.display = "block";
+  setTimeout(() => {
+    card.style.transform = "translate(-50%, -50%) scale(1)";
+    card.style.opacity = "1";
+    overlay.style.opacity = "1";
+  }, 10);
+  card.style.display = "block";
+}
 
-  // Click -> Show popup
-  eventDiv.addEventListener("click", () => {
-    document.querySelectorAll(".event").forEach(e => e.classList.remove("active"));
-    eventDiv.classList.add("active");
+function hideCard(card) {
+  const overlay = document.getElementById("cardOverlay");
+  card.style.transform = "translate(-50%, -50%) scale(0.7)";
+  card.style.opacity = "0";
+  if (overlay) overlay.style.opacity = "0";
+  setTimeout(() => {
+    card.style.display = "none";
+    if (overlay) overlay.style.display = "none";
+  }, 400);
+}
 
-    overlayTitle.textContent = event.title;
-    overlayYear.textContent = event.year + " — " + event.category;
-    overlayDesc.textContent = event.description;
-    overlayImg.src = event.image;
-    overlay.style.display = "flex";
-  });
-
-  timeline.appendChild(eventDiv);
-});
-
-// Close popup
-closeOverlay.addEventListener("click", () => {
-  overlay.style.display = "none";
-});
-
-// Zoom controls
-let zoomLevel = 1;
-const zoomInBtn = document.getElementById("zoomIn");
-const zoomOutBtn = document.getElementById("zoomOut");
-const resetZoomBtn = document.getElementById("resetZoom");
-
-zoomInBtn.addEventListener("click", () => {
-  zoomLevel += 0.1;
-  timeline.style.transform = `scale(${zoomLevel})`;
-  timeline.style.transformOrigin = "center";
-});
-
-zoomOutBtn.addEventListener("click", () => {
-  if (zoomLevel > 0.5) {
-    zoomLevel -= 0.1;
-    timeline.style.transform = `scale(${zoomLevel})`;
-    timeline.style.transformOrigin = "center";
+// Close event card when clicking outside
+document.addEventListener("mousedown", function(e) {
+  const card = document.querySelector(".event-card");
+  const overlay = document.getElementById("cardOverlay");
+  if (card && overlay && (e.target === overlay || !card.contains(e.target))) {
+    hideCard(card);
+    setTimeout(() => {
+      card.remove();
+      overlay.remove();
+    }, 400);
   }
 });
 
-resetZoomBtn.addEventListener("click", () => {
-  zoomLevel = 1;
-  timeline.style.transform = "scale(1)";
-});
+// Modal for videos/images
+const modal = document.getElementById("modal");
+const modalContent = document.getElementById("modalContent");
+const closeBtn = document.querySelector(".close");
 
-// Search functionality
-document.getElementById("searchBox").addEventListener("input", e => {
-  const query = e.target.value.toLowerCase();
-  document.querySelectorAll(".event").forEach((ev, i) => {
-    const matches = events[i].title.toLowerCase().includes(query) || events[i].year.includes(query);
-    ev.style.display = matches ? "inline-block" : "none";
-  });
-});
-
-// Scroll animation reveal
-const observer = new IntersectionObserver(entries => {
-  entries.forEach(entry => {
-    if (entry.isIntersecting) {
-      entry.target.classList.add("visible");
+document.addEventListener("click", e => {
+  if (e.target.classList.contains("open-video")) {
+    const src = e.target.getAttribute("data-src");
+    let mediaHTML = "";
+    if (src.includes("youtube.com") || src.includes("youtu.be")) {
+      mediaHTML = `<iframe src="${src}" frameborder="0" allowfullscreen></iframe>`;
+    } else {
+      mediaHTML = `<video controls autoplay><source src="${src}" type="video/mp4"></video>`;
     }
-  });
-}, { threshold: 0.2 });
+    modalContent.innerHTML = mediaHTML;
+    modal.style.display = "block";
+  }
+});
 
-document.querySelectorAll(".event").forEach(ev => observer.observe(ev));
+closeBtn.onclick = () => {
+  modal.style.display = "none";
+  modalContent.innerHTML = "";
+};
+window.onclick = e => {
+  if (e.target === modal) {
+    modal.style.display = "none";
+    modalContent.innerHTML = "";
+  }
+};
 
-// Auto-center timeline
-timeline.scrollLeft = timeline.scrollWidth / 2 - window.innerWidth / 2;
+// Search filter
+const searchBox = document.getElementById("searchBox");
+searchBox.addEventListener("input", () => {
+  const query = searchBox.value.toLowerCase();
+  svg.selectAll("circle")
+    .attr("opacity", d => d.title.toLowerCase().includes(query) ? 1 : 0.2);
+  svg.selectAll("text.event-label")
+    .attr("opacity", d => d.title.toLowerCase().includes(query) ? 1 : 0.2);
+});

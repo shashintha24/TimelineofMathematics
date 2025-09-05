@@ -1,2 +1,2 @@
 # TimelineofMathematics
-Engex exhigition 
+Engex exhibition 

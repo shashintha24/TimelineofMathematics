@@ -3,40 +3,31 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Advanced Math Timeline</title>
+  <title>Super Interactive Timeline</title>
   <link rel="stylesheet" href="style.css">
+
+  <!-- D3.js for zoom/scale -->
+  <script src="https://d3js.org/d3.v7.min.js"></script>
+  <!-- GSAP for animations -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
 </head>
 <body>
   <header>
-    <h1>Timeline of Mathematics</h1>
-    <p>Explore the history of mathematics — scroll, zoom, and search events.</p>
-    <input type="text" id="searchBox" placeholder="🔍 Search for an event...">
+    <h1>📜 History of Mathematics</h1>
+    <input type="text" id="searchBox" placeholder="🔍 Search events...">
   </header>
 
   <main>
-    <div class="controls">
-      <button id="zoomIn">➕ Zoom In</button>
-      <button id="zoomOut">➖ Zoom Out</button>
-      <button id="resetZoom">🔄 Reset</button>
-    </div>
-
-    <div class="timeline" id="timeline">
-      <!-- Events will load dynamically -->
-    </div>
+    <svg id="timelineSvg"></svg>
+    <div id="eventsContainer"></div>
   </main>
 
-  <!-- Overlay popup -->
-  <div id="overlay" class="overlay">
-    <div class="overlay-content">
-      <span id="closeOverlay" class="close">&times;</span>
-      <img id="overlayImg" alt="Event Image">
-      <h2 id="overlayTitle"></h2>
-      <p class="year" id="overlayYear"></p>
-      <p id="overlayDesc"></p>
-    </div>
+  <!-- Modal for fullscreen video/image -->
+  <div id="modal" class="modal">
+    <span class="close">&times;</span>
+    <div class="modal-content" id="modalContent"></div>
   </div>
 
   <script src="script.js"></script>
 </body>
 </html>
-
