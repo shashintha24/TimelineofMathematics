@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Advanced Math Timeline</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header>
+    <h1>Timeline of Mathematics</h1>
+    <p>Explore the history of mathematics — scroll, zoom, and search events.</p>
+    <input type="text" id="searchBox" placeholder="🔍 Search for an event...">
+  </header>
+
+  <main>
+    <div class="controls">
+      <button id="zoomIn">➕ Zoom In</button>
+      <button id="zoomOut">➖ Zoom Out</button>
+      <button id="resetZoom">🔄 Reset</button>
+    </div>
+
+    <div class="timeline" id="timeline">
+      <!-- Events will load dynamically -->
+    </div>
+  </main>
+
+  <!-- Overlay popup -->
+  <div id="overlay" class="overlay">
+    <div class="overlay-content">
+      <span id="closeOverlay" class="close">&times;</span>
+      <img id="overlayImg" alt="Event Image">
+      <h2 id="overlayTitle"></h2>
+      <p class="year" id="overlayYear"></p>
+      <p id="overlayDesc"></p>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
+
