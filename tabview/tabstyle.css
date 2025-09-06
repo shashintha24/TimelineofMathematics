@@ -1,0 +1,73 @@
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  background: linear-gradient(120deg, #1e3c72, #2a5298);
+  color: #fff;
+  overflow-x: hidden;
+}
+
+header {
+  position: sticky;
+  top: 0;
+  background: rgba(0, 0, 0, 0.7);
+  color: #fff;
+  text-align: center;
+  padding: 15px;
+  font-size: 1.5em;
+  z-index: 100;
+}
+
+/* Timeline (horizontal scroll) */
+#timeline {
+  display: flex;
+  flex-direction: row;
+  gap: 25px;
+  padding: 30px;
+  overflow-x: auto;
+  overflow-y: hidden;
+  white-space: nowrap;
+  height: 350px;
+  scroll-behavior: smooth;
+
+  scrollbar-width: none;   /* Firefox hide scrollbar */
+}
+#timeline::-webkit-scrollbar {
+  display: none;           /* Chrome, Safari, Edge hide scrollbar */
+}
+
+/* Event cards */
+.event {
+  min-width: 280px;
+  max-width: 300px;
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(6px);
+  border-radius: 15px;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.4);
+  padding: 20px;
+  text-align: left;
+  flex-shrink: 0;
+  transition: transform 0.3s ease, background 0.3s ease;
+}
+
+.event:hover {
+  transform: scale(1.07);
+  background: rgba(255, 255, 255, 0.25);
+}
+
+/* Titles inside cards */
+.event h2 {
+  margin-top: 0;
+  font-size: 1.2em;
+  color: #ffd700;
+}
+
+.event ul {
+  padding-left: 20px;
+}
+
+.event li {
+  margin: 8px 0;
+  font-size: 0.95em;
+  line-height: 1.4;
+}

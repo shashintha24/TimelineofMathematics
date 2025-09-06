@@ -4,7 +4,7 @@ const events = [
     year: -3000,
     title: "Ancient Egypt",
     description: "Earliest records of mathematics for building pyramids.",
-    image: "assets/egypt.jpg",
+    //image: "assets/egypt.jpg",
     video: "https://www.youtube.com/embed/tgbNymZ7vqY",
     category: "Math"
   },
@@ -38,8 +38,8 @@ const events = [
 
 // SVG setup
 const svg = d3.select("#timelineSvg");
-const width = window.innerWidth;
-const height = window.innerHeight - 100;
+const width = 3000;
+const height = window.innerHeight + 370;
 
 svg.attr("width", width).attr("height", height);
 
@@ -61,7 +61,7 @@ svg.selectAll("circle")
   .append("circle")
   .attr("class", "event-dot")
   .attr("cx", d => xScale(d.year))
-  .attr("cy", height/2)
+  .attr("cy", height/2-100)
   .attr("r", 8)
   .on("click", (event, d) => showCard(d, xScale(d.year), height/2));
 

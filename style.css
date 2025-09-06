@@ -1,17 +1,26 @@
 body {
   margin: 0;
+  padding: 0;
   font-family: "Segoe UI", sans-serif;
-  background: linear-gradient(120deg, #f6f9fc, #e9f0f5);
+  /* background: linear-gradient(120deg, #f6f9fc, #e9f0f5); */
   overflow: hidden;
 }
 
 header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
   text-align: center;
   padding: 40px 20px;
   background: linear-gradient(90deg, #0066bf, #5cc3fb);
   color: white;
 }
+header h1 {
+  margin: 0;
+  align-items: center;
+}
 header input {
+  margin-top: 0; /* Remove top margin so it aligns vertically */
   margin-top: 10px;
   padding: 8px 12px;
   border-radius: 8px;
@@ -20,23 +29,35 @@ header input {
   width: 250px;
 }
 
+
 main {
   position: relative;
-  width: 100%;
+  width: 100vw;
   height: calc(100vh - 100px);
-  overflow: hidden;
+  overflow-x: auto;    /* Enable horizontal scroll */
+  overflow-y: hidden;  /* Prevent vertical scroll */
+  white-space: nowrap; /* Prevent wrapping */
+  
 }
 
 #timelineSvg {
-  width: 100%;
+  width: 3000px;
   height: 100%;
-  background: #fff;
-  border-top: 3px solid #444;
+  background: url("assets/background.jpeg") no-repeat center center fixed;
+  background-size: cover;
+  border-top: 3px solid #ffffff;
+}
+
+#timelineSvg .domain {
+  stroke: #ffffff; /* Axis line color */
+}
+#timelineSvg .tick text {
+  fill: #ffffff;   /* Axis label color */
 }
 
 .event-dot {
   fill: #4CAF50;
-  stroke: #222;
+  stroke: #ffffff;
   stroke-width: 2px;
   cursor: pointer;
   transition: transform 0.2s;
@@ -49,7 +70,7 @@ main {
 
 .event-label {
   font-size: 12px;
-  fill: #333;
+  fill: #fffdfd;
   text-anchor: middle;
 }
 
@@ -102,7 +123,7 @@ main {
 }
 
 .event-card img, .event-card video .event-card iframe {
-  width: 80%;
+  width: 80vh;
   height: 60vh;
   max-width: 1000px;
   max-height: 90vh;
@@ -151,3 +172,4 @@ main {
   display: none;
   transition: opacity 0.3s;
 }
+
