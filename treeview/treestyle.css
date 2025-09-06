@@ -1,0 +1,198 @@
+body {
+  font-family: Arial, sans-serif;
+  background: #f9fafb;
+  margin: 0;
+  padding: 20px;
+}
+h1 {
+  text-align: center;
+  font-size: 2rem;
+  margin-bottom: 40px;
+}
+.timeline {
+  position: relative;
+  max-width: 800px;
+  margin: 0 auto;
+}
+.timeline::after {
+  content: '';
+  position: absolute;
+  left: 50%;
+  top: 0;
+  bottom: 0;
+  width: 4px;
+  background: #cbd5e0;
+  transform: translateX(-50%);
+  z-index: 0;
+}
+.event {
+  position: absolute;
+  width: 50%;
+  padding: 20px;
+  z-index: 1; /* Make sure events are above the timeline line */
+  opacity: 0;
+  transform: translateY(50px);
+  transition: all 0.8s ease-out;
+}
+.event.show {
+  opacity: 1;
+  transform: translateY(0);
+}
+/* .event.left.show {
+  background-color: #f0f9ff;
+  border-left: 4px solid #3b82f6;
+} */
+.event.left.show {
+  transform: translateX(-45%);
+}
+
+.event.right {
+  left: 55%;
+}
+.event-content {
+  background: white;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  position: relative;
+}
+.event::before {
+  content: '';
+  position: absolute;
+  top: 30px;
+  width: 20px;
+  height: 20px;
+  background: white;
+  border: 4px solid #6366f1;
+  border-radius: 50%;
+  z-index: 1;
+}
+.event.left::before {
+  right: -20px;
+}
+.event.right::before {
+  left: -20px;
+}
+.event img {
+  width: 80px;
+  height: 80px;
+  border-radius: 8px;
+  object-fit: cover;
+  margin-right: 15px;
+}
+.event h3 {
+  margin: 0;
+  font-size: 1.2rem;
+}
+.event p.subtitle {
+  color: #4f46e5;
+  font-size: 0.9rem;
+  margin: 5px 0;
+}
+.event p.body {
+  color: #374151;
+  font-size: 0.9rem;
+}
+
+
+
+@media (max-width: 768px) {
+  .event,
+  .event.right,
+  .event.left {
+    left: 0 !important;
+    width: 100%;
+    text-align: left;
+  }
+  .timeline::after {
+    left: 20px;
+  }
+  .event::before {
+    left: 8px;
+  }
+}
+
+/* Back to Top Button */
+#backToTop {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background: #6366f1;
+  color: white;
+  border: none;
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+  font-size: 1.2rem;
+  cursor: pointer;
+  display: none;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+  transition: opacity 0.3s;
+}
+#backToTop.show {
+  display: block;
+}
+
+.event-date {
+  position: absolute;
+  top: 10px;
+  font-size: 0.9rem;
+  font-weight: bold;
+  color: #374151;
+  background: #f9fafb;
+  padding: 2px 6px;
+  border-radius: 4px;
+}
+
+.event.left .event-date {
+  right: -120px; /* pushes date near the line on left side */
+  text-align: right;
+}
+
+.event.right .event-date {
+  left: -120px; /* pushes date near the line on right side */
+  text-align: left;
+}
+
+/* Modal base styles */
+.modal {
+  position: fixed;
+  z-index: 9999;
+  left: 0; top: 0;
+  width: 100vw; height: 100vh;
+  background: rgba(0,0,0,0.6);
+  display: none;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Modal content with zoom animation */
+.modal-content {
+  background: #fff;
+  padding: 30px;
+  border-radius: 12px;
+  max-width: 600px;
+  width: 90vw;
+  max-height: 90vh;
+  overflow-y: auto;
+  position: relative;
+  transform: scale(0.7);
+  opacity: 0;
+  transition: transform 0.3s cubic-bezier(.4,2,.6,1), opacity 0.3s;
+}
+
+/* Show and animate modal content */
+.modal.show {
+  display: flex;
+}
+.modal.show .modal-content {
+  transform: scale(1);
+  opacity: 1;
+}
+
+.close {
+  position: absolute;
+  top: 10px; right: 20px;
+  font-size: 2rem;
+  cursor: pointer;
+}
