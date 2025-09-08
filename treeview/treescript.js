@@ -256,7 +256,9 @@ events.forEach((ev, index) => {
   eventEl.className = `event ${index % 2 === 0 ? "left" : "right"}`;
   eventEl.style.position = "absolute";
   eventEl.style.top = `${y}px`;
-  eventEl.style.left = index % 2 === 0 ? "10%" : "60%";
+  eventEl.style.left = index % 2 === 0 ? "10%" : "35%";
+  // Add unique id for each event, first one as 'home'
+  eventEl.id = index === 0 ? "home" : `${index}`;
 
   eventEl.innerHTML = `
     <div class="event-content">
@@ -368,3 +370,4 @@ document.getElementById("eventModal").onclick = function(e) {
     }, 300);
   }
 };
+
