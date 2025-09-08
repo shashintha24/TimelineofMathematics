@@ -40,7 +40,8 @@ header {
 /* Event cards */
 .event {
   min-width: 280px;
-  max-width: 300px;
+  max-width: 600px;
+  width: 280px;
   background: rgba(255, 255, 255, 0.1);
   backdrop-filter: blur(6px);
   border-radius: 15px;
@@ -48,11 +49,15 @@ header {
   padding: 20px;
   text-align: left;
   flex-shrink: 0;
-  transition: transform 0.3s ease, background 0.3s ease;
+  /* transition: transform 0.3s ease, background 0.3s ease; */
+  transition: transform 0.3s ease, width 0.5s ease 0.3s, max-width 0.5s ease 0.3s;
 }
 
 .event:hover {
   transform: scale(1.07);
+  max-width: 600px;
+  width: 600px;
+  transition: transform 0.4s ease, width 0.5s ease 0.3s, max-width 0.5s ease 0.3s;
   /* background-color: #3399ff; */
   box-shadow: 0 8px 20px rgba(21, 101, 192, 0.622);
 }
@@ -72,4 +77,58 @@ header {
   margin: 8px 0;
   font-size: 0.95em;
   line-height: 1.4;
+}
+
+
+/* Modal base styles */
+#modal {
+  display: none;
+  position: fixed;
+  z-index: 9999;
+  left: 0; top: 0;
+  width: 100vw; height: 100vh;
+  background: rgba(0,0,0,0.5);
+  align-items: center;
+  justify-content: center;
+}
+
+/* Modal content with scale animation */
+#modal .modal-content {
+  background: #fff;
+  padding: 30px;
+  border-radius: 12px;
+  max-width: 600px;
+  width: 90vw;
+  max-height: 90vh;
+  overflow-y: auto;
+  position: relative;
+  transform: scale(0.7);
+  opacity: 0;
+  transition: transform 0.3s cubic-bezier(.4,2,.6,1), opacity 0.3s;
+}
+
+/* Show and animate modal content */
+#modal.show {
+  display: flex;
+}
+#modal.show .modal-content {
+  transform: scale(1);
+  opacity: 1;
+}
+
+/* Close button */
+.close {
+  float: right;
+  font-size: 28px;
+  cursor: pointer;
+  color: #1565c0;
+}
+.close:hover {
+  color: #000;
+}
+
+/* Animation */
+@keyframes scaleUp {
+  from { transform: scale(0.7); opacity: 0; }
+  to { transform: scale(1); opacity: 1; }
 }

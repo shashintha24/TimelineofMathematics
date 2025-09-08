@@ -507,15 +507,3 @@ nav a:hover {
   cursor: pointer;
   color: #ffffff;
 }
-
-@media (max-width: 768px) {
-  .event {
-    margin-bottom: 18px; /* Add vertical space between events */
-  }
-}
-
-@media (max-width: 480px) {
-  .event {
-    margin-bottom: 14px; /* Slightly less space for very small screens */
-  }
-}
