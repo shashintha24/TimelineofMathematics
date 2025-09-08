@@ -5,7 +5,7 @@ const events = [
     subtitle: "Greek or Egyptian, 'father of algebra'",
     body: "Wrote a series of books 'Arithmetica'.",
     image: "https://upload.wikimedia.org/wikipedia/commons/6/61/%CE%94%CE%B9%CF%8C%CF%86%CE%B1%CE%BD%CF%84%CE%BF%CF%82_-_Diophantos_-_%D0%94%D0%98%D0%9E%D0%A4%D0%90%D0%9D%D0%A2.jpg",
-    video: "https://www.youtube.com/watch?v=8r7TLzLmB8c" // <-- Add this
+    video: "https://www.youtube.com/embed/8r7TLzLmB8c?si=d0AWYnfhX-ufm-_z" // <-- Add this
   },
   {
     date: "476–550 ",
@@ -26,7 +26,8 @@ const events = [
     title: "Bhāskara II",
     subtitle: "Indian mathematician",
     body: "Proved Pythagorean theorem, explained quadratic, cubic, and quartic solutions.",
-    image: "https://upload.wikimedia.org/wikipedia/commons/thumb/6/6d/Teorema_de_Pit%C3%A1goras.Bhaskara.svg/390px-Teorema_de_Pit%C3%A1goras.Bhaskara.svg.png"
+    image: "https://upload.wikimedia.org/wikipedia/commons/thumb/6/6d/Teorema_de_Pit%C3%A1goras.Bhaskara.svg/390px-Teorema_de_Pit%C3%A1goras.Bhaskara.svg.png",
+    video: "https://www.youtube.com/embed/G4nzC0C62d8?si=xCrQImyc_gfRBkGa"
   },
   {
     date: "1170–1250",
@@ -311,11 +312,23 @@ document.querySelectorAll(".event").forEach((eventEl, idx) => {
     let videoHTML = "";
     if (ev.video) {
       // If YouTube, embed iframe; if mp4, use <video>
-      if (ev.video.includes("youtube.com") || ev.video.includes("youtu.be")) {
-        videoHTML = `<iframe width="100%" height="315" src="${ev.video}?autoplay=1" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>`;
-      } else {
-        videoHTML = `<video src="${ev.video}" controls autoplay style="width:100%;max-height:300px;"></video>`;
+        if (
+      ev.video.includes("youtube.com") ||
+      ev.video.includes("youtu.be")
+    ) {
+      // Add autoplay=1 for YouTube
+      let src = ev.video;
+      if (!src.includes("autoplay=1")) {
+        src += (src.includes("?") ? "&" : "?") + "autoplay=1";
       }
+      videoHTML = `<iframe src="${src}" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen style="width:100%;height:60vh;"></iframe>`;
+    } else {
+      // Local video
+      videoHTML = `<video controls autoplay style="margin-top:8px;width:100%;border-radius:8px;">
+        <source src="${en.video}" type="video/mp4">
+        Your browser does not support the video tag.
+      </video>`;
+    }
     
     modalDetails.innerHTML = `
       <h2>${ev.title}</h2>

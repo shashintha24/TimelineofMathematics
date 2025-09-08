@@ -2,15 +2,16 @@ body {
   font-family: Arial, sans-serif;
   margin: 0;
   padding: 0;
-  background: linear-gradient(120deg, #1e3c72, #2a5298);
-  color: #fff;
+  background: linear-gradient(120deg, #ffffff, #ffffff);
+  color: #000000;
   overflow-x: hidden;
 }
 
 header {
   position: sticky;
   top: 0;
-  background: rgba(0, 0, 0, 0.7);
+
+  background: linear-gradient(to right, #1565c0, #42a5f5);
   color: #fff;
   text-align: center;
   padding: 15px;
@@ -52,14 +53,15 @@ header {
 
 .event:hover {
   transform: scale(1.07);
-  background: rgba(255, 255, 255, 0.25);
+  /* background-color: #3399ff; */
+  box-shadow: 0 8px 20px rgba(21, 101, 192, 0.622);
 }
 
 /* Titles inside cards */
 .event h2 {
   margin-top: 0;
   font-size: 1.2em;
-  color: #ffd700;
+  color: #323232;
 }
 
 .event ul {

@@ -43,16 +43,16 @@ main {
 #timelineSvg {
   width: 3000px;
   height: 100%;
-  background: url("assets/background.jpeg") no-repeat center center fixed;
+  /* background: url("assets/background.jpeg") no-repeat center center fixed; */
   background-size: cover;
-  border-top: 3px solid #ffffff;
+  border-top: 3px solid #000000;
 }
 
 #timelineSvg .domain {
-  stroke: #ffffff; /* Axis line color */
+  stroke: #000000; /* Axis line color */
 }
 #timelineSvg .tick text {
-  fill: #ffffff;   /* Axis label color */
+  fill: #000000;   /* Axis label color */
 }
 
 .event-dot {
@@ -79,8 +79,8 @@ main {
   top: 50%;              /* vertical center */
   left: 50%;             /* horizontal center */
   transform: translate(-50%, 150%) scale(0.7); /* center by own width/height & start small */
-  width: 80%;            /* covers 60% of screen width */
-  max-width: 1000px;      /* optional max width */
+  width: 100%;            /* covers 60% of screen width */
+  max-width: 4000px;      /* optional max width */
   max-height: 95vh;       /* 80% of viewport height */
   padding: 20px;
   background: #fff;
