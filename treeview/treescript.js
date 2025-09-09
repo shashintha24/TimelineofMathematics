@@ -373,6 +373,7 @@ document.getElementById("eventModal").onclick = function(e) {
 
 document.getElementById('themeToggle').onclick = function() {
   document.body.classList.toggle('dark-theme');
+   document.getElementById('themeToggle').textContent = document.body.classList.contains('dark-theme') ? '☀️' : '🌙' ;
   // Optionally, save preference
   localStorage.setItem('theme', document.body.classList.contains('dark-theme') ? 'dark' : 'light');
 };
