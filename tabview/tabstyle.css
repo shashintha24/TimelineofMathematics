@@ -49,6 +49,9 @@ header {
   padding: 20px;
   text-align: left;
   flex-shrink: 0;
+  overflow: auto;
+  scrollbar-width: thin;
+  scrollbar-color: #888 transparent;
   /* transition: transform 0.3s ease, background 0.3s ease; */
   transition: transform 0.3s ease, width 0.5s ease 0.3s, max-width 0.5s ease 0.3s;
 }

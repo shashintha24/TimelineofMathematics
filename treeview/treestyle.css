@@ -6,6 +6,8 @@ body {
   background: radial-gradient(circle at top   , #020728, #022762);
   margin: 0;
   padding: 20px;
+  background: var(--bg-color);
+  color: var(--text-color);
 }
 h1 {
   text-align: center;
@@ -437,7 +439,7 @@ nav a:hover {
 
 .navbar a {
   flex: 0 0 auto; /* Prevent flex shrinking */
-  color: #fff;
+  color: var(--navbar-f);
   text-decoration: none;
   padding: 0.2rem 0.3rem;
   margin: 0 0.2rem;
@@ -506,4 +508,41 @@ nav a:hover {
   font-size: 2rem;
   cursor: pointer;
   color: #ffffff;
+}
+
+:root {
+  --bg-color: #f9f9f9;
+  --text-color: #222;
+  --card-bg: #fff;
+  --card-border: #e0e0e0;
+  --accent: #3b82f6;
+  --navbar-f: #000000;
+}
+
+body.dark-theme {
+  --bg-color: linear-gradient(135deg, #008dca, #3a7a8f, #2c5364);
+  --text-color: #f3f3f3;
+  --card-bg: #23272b;
+  --card-border: #333;
+  --accent: #90cdf4;
+  --navbar-f: #ffffff;
+}
+
+.event, .modal-content {
+  /* background: var(--card-bg); */
+  color: var(--text-color);
+  /* border: 1px solid var(--card-border); */
+}
+.timeline::after {
+  background: var(--accent);
+}
+a, .event .subtitle {
+  color: var(--accent);
+}
+
+#themeToggle {
+  height: 50px;
+  width: 50px;
+  padding: 0;
+  border-radius: 50%;
 }

@@ -371,3 +371,13 @@ document.getElementById("eventModal").onclick = function(e) {
   }
 };
 
+document.getElementById('themeToggle').onclick = function() {
+  document.body.classList.toggle('dark-theme');
+  // Optionally, save preference
+  localStorage.setItem('theme', document.body.classList.contains('dark-theme') ? 'dark' : 'light');
+};
+// On page load, restore preference
+if (localStorage.getItem('theme') === 'dark') {
+  document.body.classList.add('dark-theme');
+}
+
