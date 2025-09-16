@@ -4,6 +4,7 @@ const events = [
     title: "Diophantus of Alexandria",
     subtitle: "Greek or Egyptian, 'father of algebra'",
     body: "Wrote a series of books 'Arithmetica'.",
+    detail: "Diophantus made significant contributions to algebra, particularly in the area of solving algebraic equations. His work 'Arithmetica' is a collection of problems and solutions that laid the groundwork for future developments in algebra. He introduced methods for solving linear and quadratic equations and is often credited with early work on what would later be known as Diophantine equations, which are polynomial equations where integer solutions are sought.",
     image: "https://upload.wikimedia.org/wikipedia/commons/6/61/%CE%94%CE%B9%CF%8C%CF%86%CE%B1%CE%BD%CF%84%CE%BF%CF%82_-_Diophantos_-_%D0%94%D0%98%D0%9E%D0%A4%D0%90%D0%9D%D0%A2.jpg",
     video: "https://www.youtube.com/embed/8r7TLzLmB8c?si=d0AWYnfhX-ufm-_z" // <-- Add this
   },
@@ -12,7 +13,9 @@ const events = [
     title: "Aryabhata",
     subtitle: "Indian mathematician and astronomer",
     body: "Developed place value system, introduced zero, and gave approximations of π.",
-    image: "https://upload.wikimedia.org/wikipedia/commons/thumb/6/6d/Aryabhatta_of_Bihar.jpg/330px-Aryabhatta_of_Bihar.jpg"
+    detail: "Aryabhata was a pioneering Indian mathematician and astronomer who made significant contributions to the fields of mathematics and astronomy. He is credited with developing the place value system, which is fundamental to modern arithmetic, and he introduced the concept of zero as a numeral. Aryabhata also provided an accurate approximation of π (pi) and worked on trigonometric functions, laying the groundwork for future advancements in these areas.",
+    image: "https://upload.wikimedia.org/wikipedia/commons/thumb/6/6d/Aryabhatta_of_Bihar.jpg/330px-Aryabhatta_of_Bihar.jpg",
+    audio: "../assets/voice/shapeofyou.mp3"
   },
   {
     date: "1048–1131 ",
@@ -229,7 +232,8 @@ const years = events.map(ev => extractStartYear(ev.date));
 const minYear = Math.min(...years);
 const maxYear = Math.max(...years);
 const timelineHeight = Math.max(800, (maxYear - minYear) * 5 + 200);
-timeline.style.position = "relative";
+timeline.style.position ="relative";
+timeline.style.right = "500px"; // Set X distance from the left
 timeline.style.height = timelineHeight + "px";
 
 let lastY = 0;
@@ -277,17 +281,26 @@ events.forEach((ev, index) => {
 });
 
 // Intersection Observer for scroll animations
-const observer = new IntersectionObserver((entries) => {
-  entries.forEach(entry => {
-    if (entry.isIntersecting) {
-      entry.target.classList.add("show");
+// Hide events when out of viewport range (above or below window)
+function updateEventVisibility() {
+  document.querySelectorAll('.event').forEach(event => {
+    const rect = event.getBoundingClientRect();
+    // Show if any part of the event is in the viewport (with a margin)
+    if (rect.bottom > 0 && rect.top < window.innerHeight) {
+      event.style.visibility = 'visible';
+      event.style.opacity = '1';
+      event.classList.add('show');
+    } else {
+      event.style.visibility = 'hidden';
+      event.style.opacity = '0';
+      event.classList.remove('show');
     }
   });
-}, { threshold: 0.1 });
+}
 
-document.querySelectorAll(".event").forEach(event => {
-  observer.observe(event);
-});
+window.addEventListener('scroll', updateEventVisibility);
+window.addEventListener('resize', updateEventVisibility);
+setTimeout(updateEventVisibility, 100); // Initial call after DOM ready
 
 // Back to Top button
 const backToTopBtn = document.getElementById("backToTop");
@@ -305,49 +318,86 @@ backToTopBtn.addEventListener("click", () => {
 });
 
 // Add click event to each event box
-document.querySelectorAll(".event").forEach((eventEl, idx) => {
-  eventEl.addEventListener("click", function(e) {
+
+// Create a fixed details box on the right
+let detailsBox = document.getElementById('fixedDetailsBox');
+if (!detailsBox) {
+  detailsBox = document.createElement('div');
+  detailsBox.id = 'fixedDetailsBox';
+  detailsBox.style.right = '0px';
+  detailsBox.style.position = 'sticky';
+  detailsBox.style.transform='translateX(90%)';
+  detailsBox.style.top = '0px';
+  detailsBox.style.width = '50vw';
+  detailsBox.style.maxHeight = '80vh';
+  detailsBox.style.overflowY = 'auto';
+  detailsBox.style.background = 'rgba(20, 30, 60, 0.95)';
+  detailsBox.style.color = 'white';
+  detailsBox.style.borderRadius = '12px';
+  detailsBox.style.boxShadow = '0 2px 16px rgba(0,0,0,0.25)';
+  detailsBox.style.padding = '24px 18px 18px 18px';
+  detailsBox.style.zIndex = '99999';
+  detailsBox.style.display = 'none';
+  document.body.appendChild(detailsBox);
+}
+
+document.querySelectorAll('.event').forEach((eventEl, idx) => {
+  eventEl.addEventListener('click', function(e) {
     e.stopPropagation();
     const ev = events[idx];
-    const modal = document.getElementById("eventModal");
-    const modalDetails = document.getElementById("modalDetails");
-    let videoHTML = "";
+    let videoHTML = '';
     if (ev.video) {
-      // If YouTube, embed iframe; if mp4, use <video>
-        if (
-      ev.video.includes("youtube.com") ||
-      ev.video.includes("youtu.be")
-    ) {
-      // Add autoplay=1 for YouTube
-      let src = ev.video;
-      if (!src.includes("autoplay=1")) {
-        src += (src.includes("?") ? "&" : "?") + "autoplay=1";
+      if (ev.video.includes('youtube.com') || ev.video.includes('youtu.be')) {
+        let src = ev.video;
+        if (!src.includes('autoplay=1')) {
+          src += (src.includes('?') ? '&' : '?') + 'autoplay=1';
+        }
+        videoHTML = `<iframe src="${src}" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen style="width:100%;height:40vh;"></iframe>`;
+      } else {
+        videoHTML = `<video controls autoplay style="margin-top:8px;width:100%;border-radius:8px;">
+          <source src="${ev.video}" type="video/mp4">
+          Your browser does not support the video tag.
+        </video>`;
       }
-      videoHTML = `<iframe src="${src}" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen style="width:100%;height:60vh;"></iframe>`;
-    } else {
-      // Local video
-      videoHTML = `<video controls autoplay style="margin-top:8px;width:100%;border-radius:8px;">
-        <source src="${en.video}" type="video/mp4">
-        Your browser does not support the video tag.
-      </video>`;
     }
-    
-    modalDetails.innerHTML = `
+    let audioHTML = '';
+    if (ev.audio) {
+      audioHTML = `<audio autoplay controls style="width:100px;margin-top:10px;outline:none;border-radius:8px;background:#222;" controlsList="nodownload noplaybackrate nofullscreen">
+        <source src="${ev.audio}" type="audio/mpeg">
+        Your browser does not support the audio element.
+      </audio>
+      <style>
+        #fixedDetailsBox audio::-webkit-media-controls-panel { justify-content: center; }
+        #fixedDetailsBox audio::-webkit-media-controls-timeline,
+        #fixedDetailsBox audio::-webkit-media-controls-current-time-display,
+        #fixedDetailsBox audio::-webkit-media-controls-time-remaining-display,
+        #fixedDetailsBox audio::-webkit-media-controls-volume-slider,
+        #fixedDetailsBox audio::-webkit-media-controls-mute-button,
+        #fixedDetailsBox audio::-webkit-media-controls-seek-back-button,
+        #fixedDetailsBox audio::-webkit-media-controls-seek-forward-button,
+        #fixedDetailsBox audio::-webkit-media-controls-fullscreen-button,
+        #fixedDetailsBox audio::-webkit-media-controls-download-button {
+          display: none !important;
+        }
+      </style>`;
+    }
+    detailsBox.innerHTML = `
+      <button id="closeDetailsBox" style="position:absolute;top:8px;right:12px;font-size:1.5rem;background:none;border:none;color:white;cursor:pointer;">&times;</button>
       <h2>${ev.title}</h2>
       <p><strong>${ev.subtitle}</strong></p>
+      <div style="display:flex;align-items:flex-start;gap:18px;">
+        <img src="${ev.image}" alt="${ev.title}" style="max-height:30vh;max-width:180px;margin-bottom:10px;border-radius:8px;box-shadow:0 2px 8px rgba(0,0,0,0.18);">
+        ${ev.detail ? `<div style='flex:1;background:rgba(255,255,255,0.08);padding:12px 16px;border-radius:8px;box-shadow:0 1px 4px rgba(0,0,0,0.10);margin-bottom:10px;'><span style='font-size:1.05em;'>${ev.detail}</span></div>` : ''}
+      </div>
       <p>${ev.body}</p>
       ${videoHTML}
+      ${audioHTML}
     `;
-    }else {
-        modalDetails.innerHTML = `
-            <h2>${ev.title}</h2>
-            <p><strong>${ev.subtitle}</strong></p>
-            <img src="${ev.image}" alt="${ev.title}" style="max-height:50vh;max-width:50vh;margin-bottom:10px;">
-            <p>${ev.body}</p>
-            `;
-    }
-    modal.style.display = "flex";
-    setTimeout(() => modal.classList.add("show"), 10);
+    detailsBox.style.display = 'block';
+    
+    document.getElementById('closeDetailsBox').onclick = function() {
+      detailsBox.style.display = 'none';
+    };
   });
 });
 
@@ -380,5 +430,57 @@ document.getElementById('themeToggle').onclick = function() {
 // On page load, restore preference
 if (localStorage.getItem('theme') === 'dark') {
   document.body.classList.add('dark-theme');
+}
+
+// Enable smooth scroll for the whole page
+document.documentElement.style.scrollBehavior = 'smooth';
+
+// --- Auto-scroll and click events one by one with delay ---
+function autoScrollAndClickEvents(delay = 2000) {
+  const events = Array.from(document.querySelectorAll('.event'));
+  let i = 0;
+  function next() {
+    if (i >= events.length) return;
+    const el = events[i];
+    el.scrollIntoView({ behavior: 'smooth', block: 'center' });
+    setTimeout(() => {
+      el.click();
+      i++;
+      setTimeout(next, delay);
+    }, 600); // Wait for scroll before click
+  }
+  next();
+}
+
+
+// // To start auto-scroll and click, call:
+
+// // --- Add a button to start auto-scroll and click ---
+if (!document.getElementById('autoScrollBtn')) {
+  const btn = document.createElement('button');
+  btn.id = 'autoScrollBtn';
+  btn.textContent = 'Start Auto Scroll';
+  btn.style.position = 'fixed';
+  btn.style.top = '50px';
+  btn.style.right = '100px';
+  btn.style.zIndex = '100000';
+  btn.style.padding = '12px 24px';
+  btn.style.fontSize = '1.1rem';
+  btn.style.background = 'linear-gradient(90deg,#2b5876,#4e4376)';
+  btn.style.color = 'white';
+  btn.style.border = 'none';
+  btn.style.borderRadius = '8px';
+  btn.style.boxShadow = '0 2px 8px rgba(0,0,0,0.18)';
+  btn.style.cursor = 'pointer';
+  btn.onclick = function() {
+    btn.disabled = true;
+    btn.textContent = 'Auto Scrolling...';
+    autoScrollAndClickEvents(5000); // 2.2s delay for visible effect
+    setTimeout(() => {
+      btn.disabled = false;
+      btn.textContent = 'Start Auto Scroll';
+    }, (document.querySelectorAll('.event').length + 1) * 2200);
+  };
+  document.body.appendChild(btn);
 }
 
