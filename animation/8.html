@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>3D Flying Cube</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      background-color: #f4f4f9;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+
+    .scene {
+      width: 300px;
+      height: 300px;
+      perspective: 1000px; /* Controls the depth of the 3D scene */
+    }
+
+    .cube {
+      position: absolute;
+      width: 200px;
+      height: 200px;
+      transform-style: preserve-3d;
+      transform: rotateX(0deg) rotateY(0deg);
+      animation: flyEffect 5s ease-in-out infinite, rotateCube 5s linear infinite;
+    }
+
+    .face {
+      position: absolute;
+      width: 200px;
+      height: 200px;
+      background-color: rgba(0, 0, 255, 0.8);
+      border: 2px solid #000;
+    }
+
+    .front  { transform: translateZ(100px); background-color: #ff5733; }
+    .back   { transform: rotateY(180deg) translateZ(100px); background-color: #33ff57; }
+    .left   { transform: rotateY(-90deg) translateZ(100px); background-color: #3357ff; }
+    .right  { transform: rotateY(90deg) translateZ(100px); background-color: #ff33a1; }
+    .top    { transform: rotateX(90deg) translateZ(100px); background-color: #ffcc33; }
+    .bottom { transform: rotateX(-90deg) translateZ(100px); background-color: #33ccff; }
+
+    @keyframes flyEffect {
+      0% {
+        transform: translateY(0px) translateX(0px) rotateY(0deg);
+      }
+      50% {
+        transform: translateY(-100px) translateX(100px) rotateY(180deg);
+      }
+      100% {
+        transform: translateY(0px) translateX(0px) rotateY(360deg);
+      }
+    }
+
+    @keyframes rotateCube {
+      0% {
+        transform: rotateY(0deg);
+      }
+      100% {
+        transform: rotateY(360deg);
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="scene">
+    <div class="cube">
+      <div class="face front"></div>
+      <div class="face back"></div>
+      <div class="face left"></div>
+      <div class="face right"></div>
+      <div class="face top"></div>
+      <div class="face bottom"></div>
+    </div>
+  </div>
+</body>
+</html>
