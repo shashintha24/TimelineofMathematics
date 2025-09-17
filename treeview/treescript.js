@@ -479,7 +479,14 @@ document.querySelectorAll('.event').forEach((eventEl, idx) => {
       ${audioHTML}
     `;
     detailsBox.style.display = 'block';
-    
+    // Ensure audio auto-plays
+    setTimeout(() => {
+      const audio = detailsBox.querySelector('audio');
+      if (audio) {
+        audio.currentTime = 0;
+        audio.play().catch(()=>{});
+      }
+    }, 100);
     document.getElementById('closeDetailsBox').onclick = function() {
       detailsBox.style.display = 'none';
     };
