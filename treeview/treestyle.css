@@ -2,7 +2,7 @@ html {
   scroll-behavior: smooth;
 }
 body {
-  backdrop-filter: blur(6px);
+  backdrop-filter: blur(0px);
   -webkit-backdrop-filter: blur(8px);
   font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
   background: radial-gradient(circle at top   , #020728, #022762);
@@ -10,7 +10,7 @@ body {
   padding: 20px;
   background-image: url("back.jpg");
   background-size: 100vw auto;
-  background-repeat: no-repeat;
+  background-repeat: repeat;
   background-attachment: fixed;
   /* background-position: center; */
   background-position-x: center;
@@ -27,15 +27,14 @@ h1 {
   border: 1px solid rgb(65, 63, 63);
   border-radius: 12px;
   padding: 10px;
-  background: radial-gradient(circle at top, #0b2c7a, #080e30);
+  background: linear-gradient(45deg,rgba(0, 128, 232,0.8), rgba(2, 62, 112,0.8), rgba(3, 30, 59,0.8)) 90%;
   box-shadow: 0 2px 10px rgba(69, 67, 67, 0.864);
 }
 .timeline {
   position: relative;
   max-width: 800px;
   margin: 0 auto;
-  transform: translateY(-12%);
-  scale: 0.8;
+  transform: translateY(-11%) translateX(80px) scale(0.8);
 }
 .timeline::after {
   content: '';
@@ -419,12 +418,40 @@ nav a:hover {
   width: 1000px;
   max-height: 400px;
   overflow-y: auto;
-  background: radial-gradient(circle at top left, #f8f8f8, #ffffff);
+  /* background: radial-gradient(circle at top left, #2f239e, #5d44ff); */
   padding: 20px;
   border-radius: 12px;
   box-shadow: 0 0px 5px rgb(92, 86, 86);
+  /* background: linear-gradient(45deg, #4FC3F7, #0288D1, #0277BD) 50%; */
+  /* background: linear-gradient(90deg, rgba(43, 88, 118,0.7), rgba(78, 67, 118,0.7)) 90%; */
+  background: linear-gradient(45deg,rgba(0, 128, 232,0.8), rgba(2, 62, 112,0.8), rgba(3, 30, 59,0.8)) 90%;
+  background-size: 400% 400%;
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  animation: gradientAnimation 10s ease infinite;
   display: none;
 }
+
+
+/* .gradient-background {
+      height: 100%;
+      background: linear-gradient(45deg, #ff6ec7, #f7c8c8, #ff9a8b);
+      background-size: 400% 400%;
+      animation: gradientAnimation 10s ease infinite;
+    } */
+
+    @keyframes gradientAnimation {
+      0% {
+        background-position: 0% 50%;
+      }
+      50% {
+        background-position: 100% 50%;
+      }
+    
+      100% {
+        background-position: 0% 50%;
+      }
+    }
 
 
 
@@ -520,14 +547,19 @@ body.dark-theme h1{
   box-shadow: 0 1px 5px rgb(92, 86, 86);
 }
 body.dark-theme .event-content{
-  background: radial-gradient(circle at top left, rgba(2,7,40,0.7), rgba(2,39,98,0.7)) 50%;
+  /* background: radial-gradient(circle at top left, rgba(2,7,40,0.7), rgba(2,39,98,0.7)) 50%; */
   border: 1px solid rgb(78, 77, 77);
-  box-shadow: 0 0px 5px rgb(92, 86, 86);
+  box-shadow: 0 0px 5px rgb(18, 156, 255);
+  background: linear-gradient(45deg,rgba(0, 128, 232,0.8), rgba(2, 62, 112,0.8), rgba(3, 30, 59,0.8)) 90%;
+  background-size: 400% 400%;
+  animation: gradientAnimation 10s ease infinite;
 }
 body.dark-theme .event.right.show .event-content{
-  background: radial-gradient(circle at top left, rgba(2,7,40,0.7), rgba(2,39,98,0.7)) 50%;
+  background: linear-gradient(45deg,rgba(0, 128, 232,0.8), rgba(2, 62, 112,0.8), rgba(3, 30, 59,0.8)) 90%;
   border: 1px solid rgb(78, 77, 77);
-  box-shadow: 0 0px 5px rgb(92, 86, 86);
+  box-shadow: 0 0px 5px rgb(18, 156, 255);
+  background-size: 400% 400%;
+  animation: gradientAnimation 10s ease infinite;
 }
 body.dark-theme .event h3{
   color: white;
@@ -619,6 +651,9 @@ a, .event .subtitle {
   cursor: pointer;
 }
 
+#autoScrollBtn:hover{
+   transform: scale(1.08);
+}
 
 @media (max-width: 768px) {
   .event,
