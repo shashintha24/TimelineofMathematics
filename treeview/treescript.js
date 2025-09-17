@@ -544,9 +544,22 @@ function autoScrollAndClickEvents(delay = 2000) {
         if (audio) {
           // Remove any previous event listeners
           audio.onended = null;
+          let advanced = false;
+          // Fallback: advance if audio fails to play or load in 10s
+          const audioTimeout = setTimeout(() => {
+            if (!advanced) {
+              advanced = true;
+              i++;
+              next();
+            }
+          }, Math.max(10000, audio.duration ? audio.duration * 1200 : 10000));
           audio.onended = function() {
-            i++;
-            next();
+            if (!advanced) {
+              advanced = true;
+              clearTimeout(audioTimeout);
+              i++;
+              next();
+            }
           };
           // If audio is already ended (very short or error), play again to ensure ended event fires
           if (audio.ended || audio.duration === 0) {
