@@ -512,9 +512,13 @@ document.getElementById('themeToggle').onclick = function() {
   // Optionally, save preference
   localStorage.setItem('theme', document.body.classList.contains('dark-theme') ? 'dark' : 'light');
 };
-// On page load, restore preference
-if (localStorage.getItem('theme') === 'dark') {
+// On page load, set dark theme as default unless user prefers light
+if (localStorage.getItem('theme') === 'light') {
+  document.body.classList.remove('dark-theme');
+  document.getElementById('themeToggle').textContent = '🌙';
+} else {
   document.body.classList.add('dark-theme');
+  document.getElementById('themeToggle').textContent = '☀️';
 }
 
 // Enable smooth scroll for the whole page
