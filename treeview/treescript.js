@@ -107,7 +107,8 @@ const events = [
     subtitle: "Italian mathematician",
     body: "Published Ars Magna, systematic use of negative and imaginary numbers, probability theory.",
     detail:"Gerolamo Cardano, an Italian mathematician and polymath, was among the first Europeans to apply negative numbers systematically. In his landmark book Ars Magna (1545), he published algebraic solutions for cubic and quartic equations,building on earlier work. Cardano also explored binomial coefficients, discussed imaginary numbers, and studied probability in his treatise Liber de ludo aleae (The Book on Games of Chance), which is considered the first systematic work on probability theory.",
-    image: "https://upload.wikimedia.org/wikipedia/commons/thumb/2/2f/Girolamo_Cardano._Stipple_engraving_by_R._Cooper._Wellcome_V0001004.jpg/500px-Girolamo_Cardano._Stipple_engraving_by_R._Cooper._Wellcome_V0001004.jpg"
+    image: "https://upload.wikimedia.org/wikipedia/commons/thumb/2/2f/Girolamo_Cardano._Stipple_engraving_by_R._Cooper._Wellcome_V0001004.jpg/500px-Girolamo_Cardano._Stipple_engraving_by_R._Cooper._Wellcome_V0001004.jpg",
+    audio: "../assets/voice/Gerolamo.wav"
   },
   {
     date: "1596–1650",
@@ -115,7 +116,8 @@ const events = [
     subtitle: "French mathematician",
     body: "Father of analytical geometry, introduced superscripts for exponents, Cartesian coordinates.",
     detail:"René Descartes, a French mathematician and philosopher, is known as the father of analytical geometry, which unified algebra and geometry by describing geometric figures through equations. His introduction of the Cartesian coordinate system revolutionized mathematics and provided a foundation for the later development of calculus. Descartes also introduced the modern use of superscripts to denote powers or exponents, a notation still in use today.",
-    image: "https://upload.wikimedia.org/wikipedia/commons/thumb/7/73/Frans_Hals_-_Portret_van_Ren%C3%A9_Descartes.jpg/500px-Frans_Hals_-_Portret_van_Ren%C3%A9_Descartes.jpg"
+    image: "https://upload.wikimedia.org/wikipedia/commons/thumb/7/73/Frans_Hals_-_Portret_van_Ren%C3%A9_Descartes.jpg/500px-Frans_Hals_-_Portret_van_Ren%C3%A9_Descartes.jpg",
+    audio: "../assets/voice/Rene.wav"
   },
   {
     date: "1607–1665",
@@ -123,7 +125,8 @@ const events = [
     subtitle: "French mathematician",
     body: "Worked on number theory, probability, optics; known for Fermat’s Last Theorem.",
     detail: "Pierre de Fermat, a French mathematician, made influential contributions to number theory, geometry, probability, and optics. He was an early pioneer of ideas that anticipated calculus, particularly through his method of finding maxima, minima, and tangents. Fermat is best remembered for Fermat’s Last Theorem, a conjecture he noted in the margin of his copy of Arithmetica, which remained one of the most famous unsolved problems in mathematics until its proof by Andrew Wiles in 1994.",
-    image: "https://upload.wikimedia.org/wikipedia/commons/f/f3/Pierre_de_Fermat.jpg"
+    image: "https://upload.wikimedia.org/wikipedia/commons/f/f3/Pierre_de_Fermat.jpg",
+    audio: "../assets/voice/Pierre.wav"
   },
   {
     date: "1646–1716",
@@ -131,7 +134,8 @@ const events = [
     subtitle: "German mathematician",
     body: "Co-inventor of calculus, developed mechanical calculators.",
     detail: "Gottfried Wilhelm Leibniz, a German mathematician and philosopher, was one of the inventors of calculus, independently of Isaac Newton. He developed much of the notation for calculus that is still used today, such as the integral sign (∫) and the differential (d). Beyond pure mathematics, Leibniz also designed and built some of the earliest mechanical calculators, demonstrating his vision of connecting abstract reasoning with practical computation.",
-    image: "https://upload.wikimedia.org/wikipedia/commons/thumb/8/8d/Christoph_Bernhard_Francke_-_Bildnis_des_Philosophen_Leibniz_%28ca._1695%29.jpg/500px-Christoph_Bernhard_Francke_-_Bildnis_des_Philosophen_Leibniz_%28ca._1695%29.jpg"
+    image: "https://upload.wikimedia.org/wikipedia/commons/thumb/8/8d/Christoph_Bernhard_Francke_-_Bildnis_des_Philosophen_Leibniz_%28ca._1695%29.jpg/500px-Christoph_Bernhard_Francke_-_Bildnis_des_Philosophen_Leibniz_%28ca._1695%29.jpg",
+    audio: "../assets/voice/Gottfried.wav"
   },
   {
     date: "1707–1783",
@@ -139,7 +143,8 @@ const events = [
     subtitle: "Swiss mathematician",
     body: "Graph theory, topology, number theory, complex analysis, calculus, Euler’s formula.",
     detail:"Leonhard Euler, a Swiss mathematician, was one of the most prolific and influential figures in the history of mathematics. He solved the famous Königsberg bridge problem, laying the foundations of graph theory, and his work anticipated the development of topology. In complex analysis, he introduced Euler’s formula and Euler’s identity, which remain central results. Euler also advanced number theory, building on Fermat’s work to prove results such as Fermat’s little theorem and Fermat’s theorem on sums of two squares, while also contributing to Lagrange’s four- square theorem. He unified the calculus of Leibniz and Newton and developed powerful methods that made calculus widely applicable to physics and engineering.",
-    image: "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f9/Leonhard_Euler_-_Jakob_Emanuel_Handmann_%28Kunstmuseum_Basel%29.jpg/500px-Leonhard_Euler_-_Jakob_Emanuel_Handmann_%28Kunstmuseum_Basel%29.jpg"
+    image: "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f9/Leonhard_Euler_-_Jakob_Emanuel_Handmann_%28Kunstmuseum_Basel%29.jpg/500px-Leonhard_Euler_-_Jakob_Emanuel_Handmann_%28Kunstmuseum_Basel%29.jpg",
+    audio: "../assets/voice/leonhard.wav"
   },
   {
     date: "1718-1799",
@@ -147,7 +152,8 @@ const events = [
     subtitle:"Italian mathematician",
     body :"philosopher, and humanitarian",
     detail:"Maria Gaetana Agnesi, an Italian mathematician, philosopher, and humanitarian, was the first Western woman to write a comprehensive mathematics textbook and the first woman to be appointed as a mathematics professor at a university. Her textbook, Instituzioni analitiche ad uso della gioventù italiana (Analytical Institutions for the Use of Italian Youth), presented differential and integral calculus clearly and systematically, earning international acclaim. She also studied a curve now known as the “Witch of Agnesi,” which has applications in probability theory and physics.",
-    image: "https://upload.wikimedia.org/wikipedia/commons/5/57/Maria_Gaetana_Agnesi.jpg"
+    image: "https://upload.wikimedia.org/wikipedia/commons/5/57/Maria_Gaetana_Agnesi.jpg",
+    audio: "../assets/voice/Maria.wav"
   },
   {
     date: "1728–1777",
@@ -155,7 +161,8 @@ const events = [
     subtitle: "Swiss mathematician",
     body: "Proved π is irrational, worked in geometry and cartography.",
     detail:"Johann Lambert, a Swiss mathematician and physicist, was the first to prove rigorously that π is an irrational number. He also made contributions to geometry and cartography by developing innovative map projections, and he anticipated the concept of non-Euclidean spaces, foreshadowing the later revolution in geometry.",
-    image: "https://upload.wikimedia.org/wikipedia/commons/9/9b/JHLambert.jpg"
+    image: "https://upload.wikimedia.org/wikipedia/commons/9/9b/JHLambert.jpg",
+    audio: "../assets/voice/Johann.wav"
   },
   {
     date: "1736–1813",
@@ -163,7 +170,8 @@ const events = [
     subtitle: "Italian-French mathematician",
     body: "Developed calculus of variations, Lagrangian polynomials, Lagrange’s theorem in group theory.",
     detail:"Joseph-Louis Lagrange, born in Italy and later a naturalized French mathematician, was a leading figure of 18th-century mathematics. He founded the calculus of variations, formulating the Euler–Lagrange equations and introducing the method of Lagrange multipliers for handling constraints. His contributions to analysis included new approaches to Taylor series with the Lagrange remainder, and in algebra he created the Lagrange interpolation polynomial. In group theory, his theorem established that the order of a subgroup divides the order of the group. He also proved the four-square theorem, showing that every integer can be written as the sum of four squares.",
-    image: "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e7/Lagrange_crop.jpg/500px-Lagrange_crop.jpg"
+    image: "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e7/Lagrange_crop.jpg/500px-Lagrange_crop.jpg",
+    audio: "../assets/voice/joseph.wav"
   },
   {
     date: "1777–1855",
@@ -171,7 +179,8 @@ const events = [
     subtitle: "German mathematician",
     body: "Fundamental theorem of algebra, modular arithmetic, Gaussian quadrature, topology, number theory.",
     detail:"Carl Friedrich Gauss, the German mathematician often called the Prince of Mathematicians, made foundational contributions across many fields. In algebra and number theory, he proved the fundamental theorem of algebra, introduced modular arithmetic with the congruence symbol ≡, developed the theory of quadratic residues, and worked with complex integers such as the Gaussian integers. In analysis, he studied arithmetic–geometric means, continued fractions, and trigonometric interpolation, which led to the discrete Fourier transform. In numerical analysis, he developed Gaussian quadrature and iterative methods for solving linear systems. Gauss was also an early pioneer of topology, employing topological ideas in proofs of the fundamental theorem of algebra and developing classification methods for curves. His work set the stage for much of modern mathematics.",
-    image: "https://upload.wikimedia.org/wikipedia/commons/thumb/e/ec/Carl_Friedrich_Gauss_1840_by_Jensen.jpg/500px-Carl_Friedrich_Gauss_1840_by_Jensen.jpg"
+    image: "https://upload.wikimedia.org/wikipedia/commons/thumb/e/ec/Carl_Friedrich_Gauss_1840_by_Jensen.jpg/500px-Carl_Friedrich_Gauss_1840_by_Jensen.jpg",
+    audio: "../assets/voice/carl.wav"
   },
   {
     date: "1789–1857",
@@ -179,7 +188,8 @@ const events = [
     subtitle: "French mathematician",
     body: "Founded complex analysis, convergence tests, Cauchy-Riemann equations, residue theorem.",
     detail:"Augustin-Louis Cauchy, a French mathematician, was a founder of rigorous analysis and complex function theory. He introduced the Cauchy integral theorem, established the Cauchy–Riemann equations, and developed the residue theorem, which became cornerstones of complex analysis. He created tests for the convergence of infinite series, including the Cauchy condensation test, and gave the first rigorous proof of Taylor’s theorem with a clear remainder term. Cauchy’s insistence on precision and rigor reshaped mathematics, influencing nearly every branch of the discipline.",
-    image: "https://upload.wikimedia.org/wikipedia/commons/d/d3/Augustin-Louis_Cauchy_1901.jpg"
+    image: "https://upload.wikimedia.org/wikipedia/commons/d/d3/Augustin-Louis_Cauchy_1901.jpg",
+    audio: "../assets/voice/augustin.wav"
   },
    {
     date: "1804–1851",
@@ -187,7 +197,8 @@ const events = [
     subtitle: "German mathematician",
     body: "Elliptic functions, Jacobian determinant, linear algebra contributions.",
     detail:"Carl Jacobi, a German mathematician, was a founder of the theory of elliptic functions and made wide-ranging contributions to analysis. In linear algebra, he developed important results in matrix theory, including the Jacobi identity for Lie brackets. He also introduced the functional determinant known as the Jacobian, which is fundamental for changing variables in multivariable integrals and has numerous applications in probability, statistics, and applied mathematics.",
-    image: "https://upload.wikimedia.org/wikipedia/commons/thumb/9/90/Carl_Jacobi.jpg/500px-Carl_Jacobi.jpg"
+    image: "https://upload.wikimedia.org/wikipedia/commons/thumb/9/90/Carl_Jacobi.jpg/500px-Carl_Jacobi.jpg",
+    audio: "../assets/voice/carljacobi.wav"
   },
   {
     date: "1811–1832",
@@ -195,7 +206,8 @@ const events = [
     subtitle: "French mathematician",
     body: "Created group theory and Galois theory; proved unsolvability of general quintic.",
     detail: "Évariste Galois, a French mathematician, transformed algebra with his development of group theory and Galois theory. His insights revealed that polynomial equations of degree five or higher cannot be solved by radicals, building on the work of Niels Henrik Abel. Though his life was tragically short, Galois’s work became foundational for modern algebra and continues to influence mathematics today.",
-    image: "https://upload.wikimedia.org/wikipedia/commons/thumb/5/53/Evariste_galois.jpg/500px-Evariste_galois.jpg"
+    image: "https://upload.wikimedia.org/wikipedia/commons/thumb/5/53/Evariste_galois.jpg/500px-Evariste_galois.jpg",
+    audio: "../assets/voice/Evariste.wav"
   },
   {
     date: "1821–1895",
@@ -203,7 +215,8 @@ const events = [
     subtitle: "British mathematician",
     body: "Developed matrix algebra, generalized group theory, worked on higher dimensions.",
     detail:"Arthur Cayley, a British mathematician, was instrumental in formalizing group theory by giving the modern abstract definition of a “group.” He also advanced matrix algebra, laying the groundwork for linear algebra, and explored higher-dimensional geometry. Cayley’s work unified many areas of algebra and geometry, opening new directions for future research.",
-    image: "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a9/Arthur_Cayley.jpg/500px-Arthur_Cayley.jpg"
+    image: "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a9/Arthur_Cayley.jpg/500px-Arthur_Cayley.jpg",
+    audio: "../assets/voice/Arthur.wav"
   },
   {
     date: "1821–1894",
@@ -211,7 +224,8 @@ const events = [
     subtitle: "Russian mathematician",
     body: "Chebyshev inequality, prime number theorem, Chebyshev polynomials, probability theory.",
     detail:"Pafnuty Chebyshev, a Russian mathematician, made important contributions to analysis, probability, and number theory. He is known for the Chebyshev inequality, which became a key tool in probability theory and statistics. His work on prime numbers established crucial bounds that later paved the way for the proof of the prime number theorem. Chebyshev also introduced Chebyshev polynomials, widely used in approximation theory, and studied the distribution of primes in different residue classes, a phenomenon now known as “Chebyshev’s bias.",
-    image: "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d3/Pafnuty_Lvovich_Chebyshev.jpg/500px-Pafnuty_Lvovich_Chebyshev.jpg"
+    image: "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d3/Pafnuty_Lvovich_Chebyshev.jpg/500px-Pafnuty_Lvovich_Chebyshev.jpg",
+    audio: "../assets/voice/Pafnuty.wav"
   },
 
   {
@@ -220,7 +234,8 @@ const events = [
     subtitle: "German mathematician",
     body: "Riemannian geometry, Riemann hypothesis, Riemann integral, Riemann surfaces.",
     detail:"Bernhard Riemann, a German mathematician, revolutionized mathematics with his deep insights. In geometry, he developed Riemannian geometry, a framework for studying curved spaces that later became the foundation of Einstein’s theory of general relativity. In analysis, he introduced the Riemann integral and Riemann surfaces, key concepts in real and complex analysis. His 1859 paper on the zeta function proposed the famous Riemann Hypothesis, one of the greatest unsolved problems in mathematics, concerning the distribution of prime numbers.",
-    image: "https://upload.wikimedia.org/wikipedia/commons/thumb/8/82/Georg_Friedrich_Bernhard_Riemann.jpeg/500px-Georg_Friedrich_Bernhard_Riemann.jpeg"
+    image: "https://upload.wikimedia.org/wikipedia/commons/thumb/8/82/Georg_Friedrich_Bernhard_Riemann.jpeg/500px-Georg_Friedrich_Bernhard_Riemann.jpeg",
+    audio: "../assets/voice/Bernhard.wav"
   },
   {
     date: "1862–1943",
@@ -228,7 +243,8 @@ const events = [
     subtitle: "German mathematician",
     body: "Founded Hilbert space, listed Hilbert’s problems, axioms of geometry.",
     detail:"David Hilbert, a German mathematician, was one of the most influential figures of modern mathematics. In his Foundations of Geometry, he formulated 21 axioms to provide a rigorous basis for geometry. At the 1900 International Congress of Mathematicians, he presented 23 unsolved problems, known as Hilbert’s Problems, which shaped 20th-century mathematical research. He also developed Hilbert spaces, infinite-dimensional generalizations of Euclidean space, which became central in functional analysis and quantum mechanics.",
-    image: "https://upload.wikimedia.org/wikipedia/commons/thumb/7/79/Hilbert.jpg/375px-Hilbert.jpg"
+    image: "https://upload.wikimedia.org/wikipedia/commons/thumb/7/79/Hilbert.jpg/375px-Hilbert.jpg",
+    audio: "../assets/voice/David.wav"
   },
   {
     date: "1875–1941",
@@ -236,7 +252,8 @@ const events = [
     subtitle: "French mathematician",
     body: "Created measure theory and Lebesgue integral, foundations for modern analysis.",
     detail:"Henri Lebesgue, a French mathematician, transformed analysis by developing measure theory and the Lebesgue integral. Unlike the Riemann integral, which partitions the domain, Lebesgue’s approach partitions the range of functions, allowing highly discontinuous functions to be integrated. This breakthrough provided powerful tools for probability theory, Fourier analysis, and partial differential equations, establishing the modern framework of analysis.",
-    image: "https://upload.wikimedia.org/wikipedia/commons/3/3e/Lebesgue_2.jpeg"
+    image: "https://upload.wikimedia.org/wikipedia/commons/3/3e/Lebesgue_2.jpeg",
+    audio: "../assets/voice/Henri.wav"
   },
   {
     date:"1882-1935",
@@ -244,7 +261,8 @@ const events = [
     subtitle:"German mathematician",
     body:"abstract algebra,modern algebraic structures",
     detail:"Amalie Emmy Noether, a German mathematician, is widely regarded as the most influential woman in the history of mathematics. She made groundbreaking contributions to abstract algebra, developing concepts that underpin modern algebraic structures such as rings and fields. In physics, Noether’s theorem established the profound connection between symmetries and conservation laws, a cornerstone of modern theoretical physics. Her clarity of thought and originality transformed both mathematics and science.",
-    image:"https://upload.wikimedia.org/wikipedia/commons/thumb/b/b5/Emmy_Noether_%283x4_cropped%29.jpg/500px-Emmy_Noether_%283x4_cropped%29.jpg"
+    image:"https://upload.wikimedia.org/wikipedia/commons/thumb/b/b5/Emmy_Noether_%283x4_cropped%29.jpg/500px-Emmy_Noether_%283x4_cropped%29.jpg",
+    audio: "../assets/voice/Emmy.wav"
   },
   {
     date: "1916–2001",
@@ -252,7 +270,8 @@ const events = [
     subtitle: "American mathematician",
     body: "Father of Information Theory, laid foundations of digital communications.",
     detail:"Claude Shannon, an American mathematician and electrical engineer, is widely regarded as the father of information theory. He laid the mathematical foundations for digital communication and data compression, introducing key concepts such as the bit, entropy, and the Shannon limit. His work transformed telecommunications, computer science, and modern digital technology.",
-    image: "https://upload.wikimedia.org/wikipedia/commons/thumb/9/98/C.E._Shannon._Tekniska_museet_43069_%28cropped%29.jpg/500px-C.E._Shannon._Tekniska_museet_43069_%28cropped%29.jpg"
+    image: "https://upload.wikimedia.org/wikipedia/commons/thumb/9/98/C.E._Shannon._Tekniska_museet_43069_%28cropped%29.jpg/500px-C.E._Shannon._Tekniska_museet_43069_%28cropped%29.jpg",
+    audio: "../assets/voice/claude.wav"
   },
   {
     date: "1911–2004",
@@ -260,7 +279,8 @@ const events = [
     subtitle: "Chinese-American mathematician",
     body: "Father of modern differential geometry, with applications in physics and topology.",
     detail:"Shiing-Shen Chern, a Chinese-American mathematician, is considered the father of modern differential geometry. He made profound contributions to geometry, topology, and the theory of characteristic classes. His work has had lasting applications in theoretical physics, including string theory and quantum mechanics, and continues to influence research in mathematics and geometry.",
-    image: "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b5/Shiing-Shen_Chern.jpg/500px-Shiing-Shen_Chern.jpg"
+    image: "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b5/Shiing-Shen_Chern.jpg/500px-Shiing-Shen_Chern.jpg",
+    audio: "../assets/voice/Shiing.wav"
   },
   {
     date: "1919-1985",
@@ -268,7 +288,8 @@ const events = [
     subtitle:"American mathematician",
     body:"Diophantine equation has integer solutions,MRDP theorem,computability theory and computational complexity theory.",
     detail:"Julia Robinson, an American mathematician, was the first woman elected to the U.S. National Academy of Sciences and the first female president of the American Mathematical Society. Her research focused on Hilbert’s tenth problem, which asked whether there exists a general algorithm to determine if a Diophantine equation has integer solutions. Her work contributed to the eventual proof of the MRDP theorem. Robinson also made significant contributions to computability theory and computational complexity theory.",
-    image:"https://upload.wikimedia.org/wikipedia/commons/thumb/1/10/Julia_Robinson_1975.jpg/375px-Julia_Robinson_1975.jpg"
+    image:"https://upload.wikimedia.org/wikipedia/commons/thumb/1/10/Julia_Robinson_1975.jpg/375px-Julia_Robinson_1975.jpg",
+    audio: "../assets/voice/julia.wav"
   },
   {
     date: "1953–present",
@@ -276,7 +297,8 @@ const events = [
     subtitle: "British mathematician",
     body: "Proved Fermat’s Last Theorem after it remained unsolved for centuries.",
     detail:"Sir Andrew Wiles, a British mathematician, is renowned for proving Fermat’s Last Theorem, a problem that had remained unsolved for over 350 years. His proof, published in 1995, employed modern techniques from algebraic geometry and number theory, including modular forms and elliptic curves, representing a major milestone in the history of mathematics.",
-    image: "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4c/Andrew_wiles1-3.jpg/500px-Andrew_wiles1-3.jpg"
+    image: "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4c/Andrew_wiles1-3.jpg/500px-Andrew_wiles1-3.jpg",
+    audio: "../assets/voice/Andrew.wav"
   }
 ];
 
@@ -503,7 +525,11 @@ function autoScrollAndClickEvents(delay = 2000) {
   const events = Array.from(document.querySelectorAll('.event'));
   let i = 0;
   function next() {
-    if (i >= events.length) return;
+    if (i >= events.length) {
+      i = 0;
+      setTimeout(next, delay); // Wait before restarting
+      return;
+    }
     const el = events[i];
     el.scrollIntoView({ behavior: 'smooth', block: 'center' });
     setTimeout(() => {
