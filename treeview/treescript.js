@@ -531,16 +531,34 @@ function autoScrollAndClickEvents(delay = 2000) {
   function next() {
     if (i >= events.length) {
       i = 0;
-      setTimeout(next, delay); // Wait before restarting
+      setTimeout(next, delay);
       return;
     }
     const el = events[i];
     el.scrollIntoView({ behavior: 'smooth', block: 'center' });
     setTimeout(() => {
       el.click();
-      i++;
-      setTimeout(next, delay);
-    }, 600); // Wait for scroll before click
+      // Wait for audio to end, or fallback to delay
+      setTimeout(() => {
+        const audio = document.querySelector('#fixedDetailsBox audio');
+        if (audio) {
+          // Remove any previous event listeners
+          audio.onended = null;
+          audio.onended = function() {
+            i++;
+            next();
+          };
+          // If audio is already ended (very short or error), play again to ensure ended event fires
+          if (audio.ended || audio.duration === 0) {
+            audio.currentTime = 0;
+            audio.play();
+          }
+        } else {
+          i++;
+          setTimeout(next, delay);
+        }
+      }, 400);
+    }, 600);
   }
   next();
 }
