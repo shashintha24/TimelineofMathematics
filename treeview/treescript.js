@@ -1,5 +1,150 @@
 const events = [
   {
+    date: "570-495BC",
+    title: "Pythagoras",
+    subtitle:"The ancient Greek philosopher ",
+    body:"The Pythagorean theorem: The sum of the areas of the two squares on the legs (a and b) equals the area of the square on the hypotenuse (c).",
+    detail :"The ancient Greek philosopher Pythagoras founded a mystical school where mathematics was central to understanding the universe, and he is most famous for the geometric theorem bearing his name, which proves that in any right-angled triangle, the square of the hypotenuse (c) is equal to the sum of the squares of the other two sides (a² + b² = c²); this fundamental principle, exemplified by the 3-4-5 triangle, remains a cornerstone of mathematics, though his followers also pioneered the study of numerical ratios in music and the unsettling discovery of irrational numbers.",
+    image: "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d2/Pythagorean.svg/500px-Pythagorean.svg.png",
+    // image: "https://en.wikipedia.org/wiki/File:Pythagoras_in_the_Roman_Forum,_Colosseum.jpg",
+    audio: "../assets/voice/pythagoras.wav"
+
+
+  },
+  {
+    date: "300BCE",
+    title: "Euclid",
+    subtitle:"The ancient Greek philosopher ",
+    body:"Greek mathematician ",
+    detail :"Euclid of Alexandria (Εὐκλείδης, around 300 BCE) was a Greek mathematician and is often called the father of geometry. His book The Elements first introduced Euclidean geometry, defines its five axioms, and contains many important proofs in geometry and number theory – including that there are infinitely many prime numbers. It is one of the most influential books ever published, and was used as textbook in mathematics until the 19th century. Euclid taught mathematics in Alexandria, but not much else is known about his life.",
+    image: "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c6/Jusepe_de_Ribera_-_Euclid_-_2001.26_-_J._Paul_Getty_Museum.jpg/500px-Jusepe_de_Ribera_-_Euclid_-_2001.26_-_J._Paul_Getty_Museum.jpg",
+    audio: "../assets/voice/Euclidean.wav"
+    
+
+  },
+   {
+    date: "287 - 212BC",
+    title: "Archimedes",
+    subtitle:"The ancient Greek philosopher ",
+    body:"legendary Greek inventor, physicist, and mathematician  ",
+    detail :"Archimedes of Syracuse was a legendary Greek inventor, physicist, and mathematician whose brilliant, practical mind seemed to bend the very laws of nature to his will. He is the man who, upon discovering the principle of buoyancy while in his bath, famously leaped out and ran naked through the streets shouting Eureka! (I have found it!), and who supposedly used intricate systems of levers and pulleys to single-handedly drag a fully laden ship ashore. Yet, for all his famed engineering marvels, his pure mathematical genius was perhaps his greatest gift, as he used astonishingly inventive techniques to calculate the value of π, determine the volumes of spheres and cylinders, and lay the groundwork for what would become calculus centuries later, making him one of the most original and formidable intellects of the ancient world.",
+    image: "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e7/Domenico-Fetti_Archimedes_1620.jpg/500px-Domenico-Fetti_Archimedes_1620.jpg",
+    audio: "../assets/voice/Archimedes.wav"
+    
+
+  },
+    {
+    date: "780-850",
+    title: "Al-Khwarizmi",
+    subtitle:"Father of Algebra.",
+    body:" ",
+    detail :"Al-Khwarizmi (c. 780–850 CE) was a Persian mathematician, astronomer, and scholar at the House of Wisdom in Baghdad, often called the “Father of Algebra.” His most famous mathematical contribution was his book Al-Kitab al-Mukhtasar fi Hisab al-Jabr wal-Muqabala (“The Compendious Book on Calculation by Completion and Balancing”), which systematically introduced algebra as an independent discipline, laying the foundations for solving linear and quadratic equations. He also played a key role in spreading the Hindu-Arabic numeral system, including the concept of zero, to the Islamic world and later to Europe, revolutionizing arithmetic and computation. In addition, his work in developing algorithms (a term derived from his name) influenced modern computer science, while his treatises on astronomy and geography further established him as one of the greatest intellectual figures of the Islamic Golden Age.",
+    image: "https://upload.wikimedia.org/wikipedia/commons/thumb/7/7d/Madrid_-_Ciudad_Universitaria%2C_Monumento_a_Muhammad_al-Juarismi_%28cropped%29.jpg/500px-Madrid_-_Ciudad_Universitaria%2C_Monumento_a_Muhammad_al-Juarismi_%28cropped%29.jpg",
+    audio: "../assets/voice/al_khwarizmi.wav"
+
+    
+
+  },
+   {
+    date: "1202-1261",
+    title: "Qin Jiushao",
+    subtitle:"Chinese mathematician, astronomer, and government official of the Southern Song dynasty",
+    body:" ",
+    detail :"Qin Jiushao (c. 1202–1261) was a prominent Chinese mathematician, astronomer, and government official of the Southern Song dynasty, best known for his influential work Shushu Jiuzhang (“Mathematical Treatise in Nine Sections”). In this text, he introduced a wide range of mathematical techniques, most famously the “Qin Jiushao method” (later known as Horner’s method) for solving polynomial equations, which provided an efficient way to approximate roots. He also made significant contributions to indeterminate analysis and developed methods involving the Chinese Remainder Theorem. Qin applied mathematics to practical problems such as land measurement, taxation, engineering, and calendrical calculations, demonstrating both theoretical insight and practical utility. His work marked a high point in Chinese mathematics and influenced later mathematical thought in East Asia.",
+    image: "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e4/Third_order_equation-Shu-shu-jiu-zhang.jpg/500px-Third_order_equation-Shu-shu-jiu-zhang.jpg",
+    audio: "../assets/voice/qinjiushao.wav"
+    
+
+  },
+   {
+    date: "1588-1648",
+    title: "Marin Mersenne",
+    subtitle:"French mathematician, philosopher, and theologian",
+    body:" ",
+    detail :"Marin Mersenne (1588–1648) was a French mathematician, philosopher, and theologian, often remembered as a central figure in the scientific community of the 17th century. He is most famous in mathematics for his study of prime numbers, particularly the special class now known as Mersenne primes, numbers of the form  where  is prime. Mersenne compiled a list of such primes, sparking centuries of research that continues today in number theory and cryptography. Beyond mathematics, he served as a key correspondent between leading scientists of his time—including Descartes, Fermat, Galileo, and Pascal—helping to spread and debate new ideas across Europe. His influential role as a “postman of science” and his own research in acoustics and music theory made him an important contributor to the Scientific Revolution.",
+    image: "https://upload.wikimedia.org/wikipedia/commons/thumb/3/34/Marin_mersenne.jpg/375px-Marin_mersenne.jpg",
+    audio: "../assets/voice/Marin.wav"
+    
+
+  },
+    {
+    date: "1642-1727",
+    title: "Sir Isaac Newton",
+    subtitle:"English mathematician, physicist, and astronomer",
+    body:"  ",
+    detail : "Sir Isaac Newton (1642–1727) was an English mathematician, physicist, and astronomer, widely regarded as one of the most influential scientists in history. He is best known for formulating the laws of motion and universal gravitation, which laid the foundation for classical mechanics and transformed our understanding of the physical world. In mathematics, Newton—alongside Leibniz—developed calculus, providing powerful tools for solving problems in geometry, physics, and engineering. He also made major contributions to optics, demonstrating that white light is composed of different colors and inventing the reflecting telescope. Newton’s groundbreaking work was compiled in his Philosophiæ Naturalis Principia Mathematica (1687), often called the Principia, which became a cornerstone of modern science.",
+    image: "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f7/Portrait_of_Sir_Isaac_Newton%2C_1689_%28brightened%29.jpg/500px-Portrait_of_Sir_Isaac_Newton%2C_1689_%28brightened%29.jpg",
+    audio: "../assets/voice/isaac_newton.wav"
+    
+
+  },
+   {
+    date: "1728-1777",
+    title: "Johann Heinrich Lambert ",
+    subtitle:"Swiss mathematician, physicist, and astronomer ",
+    body:"  ",
+    detail : "Johann Heinrich Lambert (1728–1777) was a Swiss mathematician, physicist, and astronomer who made significant contributions across many fields of science. He is best known in mathematics for giving the first rigorous proof that π (pi) is irrational, showing that it cannot be expressed as a ratio of two integers. Lambert also advanced the study of continued fractions and made early progress toward the theory of transcendental numbers. In physics, he worked on optics, introducing the Lambert cosine law for light intensity, and in astronomy, he proposed the nebular hypothesis, suggesting that stars and planets form from rotating clouds of gas and dust. A true polymath of the Enlightenment, Lambert’s work bridged mathematics, natural science, and philosophy, leaving a lasting impact on multiple disciplines.",
+    image: "https://upload.wikimedia.org/wikipedia/commons/9/9b/JHLambert.jpg",
+    audio: "../assets/voice/Johann.wav"
+    
+
+  },
+   {
+    date: "1667-1754",
+    title: "Abraham de Moivre ",
+    subtitle:"French mathematician ",
+    body:"  ",
+    detail : "Abraham de Moivre was a French mathematician who made significant contributions to probability theory, analytic geometry, and complex numbers. He's most famous for De Moivre's Formula, which connects complex numbers and trigonometry by providing a way to find the powers and roots of complex numbers. The formula, written as ,was a crucial step in moving trigonometry from a geometric study to an analytical one. De Moivre also made major contributions to probability, publishing a foundational book on the subject called The Doctrine of Chances. In this work, he developed the normal distribution as an approximation for the binomial distribution and was the first to state the Central Limit Theorem, which is a cornerstone of modern statistics. His work also led to the development of Stirling's formula, which provides an approximation for factorials of large numbers.",
+    image: "https://upload.wikimedia.org/wikipedia/commons/thumb/2/28/Abraham_de_Moivre_by_Joseph_Highmore.jpg/500px-Abraham_de_Moivre_by_Joseph_Highmore.jpg",
+    audio: "../assets/voice/abraham.wav"
+    
+
+  },
+
+  {
+    date: "1842-1899)",
+    title: "Marius Sophus Lie ",
+    subtitle:"Norwegian mathematician ",
+    body:"  ",
+    detail : "Marius Sophus Lie (1842-1899) was a Norwegian mathematician who is widely regarded as the creator of the theory of continuous symmetry. He applied this concept to the study of geometry and differential equations, and his work laid the foundation for one of the major branches of 20th-century mathematics, known as Lie theory. Lie's most significant achievement was his discovery that continuous transformation groups (now called Lie groups) could be understood by studying their 'linearized' versions, called Lie algebras. This insight provided a powerful algebraic tool for analyzing continuous symmetries and has had a profound and lasting impact on a variety of fields, including modern mathematics, theoretical physics, quantum mechanics, and the theory of relativity.",
+    image: "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a3/Portrett_av_Sophus_Lie.jpg/500px-Portrett_av_Sophus_Lie.jpg",
+    audio: "../assets/voice/marius.wav"
+    
+
+  },
+    {
+    date: "1887-1920)",
+    title: "Srinivasa Ramanujan ",
+    subtitle:"Indian mathematician ",
+    body:"  ",
+    detail : "Srinivasa Ramanujan was an Indian mathematician who, despite having little formal training, made profound and original contributions to various fields of mathematics, particularly number theory, infinite series, and continued fractions. His work was so innovative and unconventional that it initially puzzled the leading mathematicians of his time. He is well-known for his formulas for pi, which are still used in modern algorithms, and his groundbreaking work on the partition function, which counts the number of ways a positive integer can be expressed as a sum of other positive integers. He is also famous for the story of the number 1729, which is the smallest number that can be expressed as the sum of two cubes in two different ways, a property he famously pointed out to his collaborator G.H. Hardy. Ramanujan’s 'mock theta functions,' discovered near the end of his life, continue to inspire research in modern mathematics and theoretical physics.",
+    image: "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d0/Srinivasa_Ramanujan-Add._MS_a94_version2_%28cropped%29.jpg/500px-Srinivasa_Ramanujan-Add._MS_a94_version2_%28cropped%29.jpg",
+    audio: "../assets/voice/srinivasa.wav"
+
+  },
+  {
+    date: "1802-1829",
+    title: "Niels Henrik Abel",
+    subtitle:"Norwegian mathematician ",
+    body:"  ",
+    detail : "Niels Henrik Abel was a Norwegian mathematician who made groundbreaking contributions to various fields despite a tragically short life marked by poverty and lack of recognition. His most celebrated achievement was providing the first complete proof that it is impossible to solve the general quintic equation (a polynomial equation of the fifth degree) using radicals, a problem that had baffled mathematicians for centuries. He also made fundamental discoveries in elliptic functions and Abelian functions, which generalized the theory of elliptic integrals to functions of several variables. His work on the theory of equations and analysis laid the groundwork for modern concepts such as group theory and led to the establishment of the prestigious Abel Prize in his honor.",
+    image: "https://upload.wikimedia.org/wikipedia/commons/8/80/Niels_Henrik_Abel.jpg",
+    audio: "../assets/voice/niels.wav"
+
+  },
+  {
+    date: "429-500",
+    title: "Zu Chongzhi ",
+    subtitle:"Chinese mathematician, astronomer, and inventor",
+    body:"  ",
+    detail : "Zu Chongzhi was a Chinese mathematician, astronomer, and inventor who lived during the Liu Song and Southern Qi dynasties. His most remarkable mathematical contribution was his highly accurate calculation of pi (π). He determined that the true value of pi was between 3.1415926 and 3.1415927. He also provided two fractional approximations for pi: 722​ and the even more precise 113355​, a ratio that remained the most accurate approximation for pi for nearly 900 years. To achieve this incredible level of precision, he used an algorithm of successive approximations, likely involving a polygon with over 24,000 sides. Alongside his son Zu Gengzhi, he also derived the correct formula for the volume of a sphere using a principle later rediscovered in the West and named Cavalieri's Principle, but in China, it's known as the 'Zu Geng Principle.'",
+    image: "https://upload.wikimedia.org/wikipedia/commons/thumb/9/92/%E7%A5%96%E5%86%B2%E4%B9%8B%E9%93%9C%E5%83%8F.jpg/500px-%E7%A5%96%E5%86%B2%E4%B9%8B%E9%93%9C%E5%83%8F.jpg",
+    audio: "../assets/voice/Zu_chongzhi.wav"
+
+  },
+
+
+  {
     date: " 200–284",
     title: "Diophantus of Alexandria",
     subtitle: "Greek or Egyptian, 'father of algebra'",
